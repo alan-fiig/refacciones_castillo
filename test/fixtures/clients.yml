@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  work_description: MyString
+  initial: MyString
+  payment: 9.99
+  total_pay: 9.99
+  start_date: 2024-05-10
+  end_date: 2024-05-10
+
+two:
+  name: MyString
+  work_description: MyString
+  initial: MyString
+  payment: 9.99
+  total_pay: 9.99
+  start_date: 2024-05-10
+  end_date: 2024-05-10

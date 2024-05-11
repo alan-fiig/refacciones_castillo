@@ -1,4 +1,6 @@
 class WorkersController < ApplicationController
+  before_action :set_worker, only: [:edit, :update, :destroy]
+
   def index
     @workers = Worker.all
   end
@@ -10,21 +12,15 @@ class WorkersController < ApplicationController
   def create
     @worker = Worker.new(worker_params)
     if @worker.save
-      flash[:notice] = 'Product added!'
+      flash[:notice] = 'Trabajador agregado con éxito'
       redirect_to workers_path
     else
-      flash[:error] = 'Failed to edit product!'
+      flash[:error] = 'Error al agregar trabajador'
       render :new
     end
   end
 
-  def edit
-    @worker = Worker.find(params[:id])
-  end
-
   def update
-    @worker = Worker.find(params[:id])
-
     if @worker.update(worker_params)
       flash[:notice] = 'Trabajador actualizado con éxito'
       redirect_to workers_path
@@ -35,8 +31,6 @@ class WorkersController < ApplicationController
   end
 
   def destroy
-    @worker = Worker.find(params[:id])
-
     if @worker.destroy
       flash[:notice] = 'Trabajador eliminado con éxito'
     else
@@ -46,10 +40,14 @@ class WorkersController < ApplicationController
     redirect_to workers_path
   end
 
+  private
+
+  def set_worker
+    @worker = Worker.find(params[:id])
+  end
 
   def worker_params
     params.require(:worker).permit(:name, :position, :salary, :age, :address, :telephone, :profile_picture)
   end
-
 
 end

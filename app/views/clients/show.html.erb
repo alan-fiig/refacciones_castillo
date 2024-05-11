@@ -1,0 +1,54 @@
+<%= render 'partials/menu' %>
+<div class="p-4 sm:ml-64 dark:bg-gray-800 min-h-screen">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex justify-center items-center mb-20">
+                <div class="flex flex-col text-center w-full">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 dark:text-white">Detalles del cliente</h1>            
+                </div>
+                <%= link_to edit_client_path, class: "flex justify-center items-center gap-2 w-28 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#f4d03f] via-[#f4d03f] to-[#9a7d0a] hover:shadow-xl hover:shadow-yellow-500 hover:scale-105 duration-300 hover:from-[#9a7d0a] hover:to-[#f4d03f]" do %>
+                    Actualizar
+                <% end %>
+            </div>
+            <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                    <h2 class="text-gray-900 dark:text-white text-lg title-font font-medium mb-2">Datos de contacto</h2>
+                    <p class="leading-relaxed text-base dark:text-gray-400">Nombre: <%= @client.name %></p>
+                    <p class="leading-relaxed text-base dark:text-gray-400">Teléfono: <%= @client.telephone %></p>
+                    <p class="leading-relaxed text-base dark:text-gray-400">Dirección: <%= @client.address %></p>
+                </div>
+            </div>
+            <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col">
+                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                    <h2 class="text-gray-900 dark:text-white text-lg title-font font-medium mb-2">Detalles del trabajo</h2>
+                    <p class="leading-relaxed text-base dark:text-gray-400">
+                    Status: 
+                        <% if @client.status == "Process" %>
+                            <span class="inline-flex items-center bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
+                                <span class="w-2 h-2 me-1 bg-yellow-500 rounded-full"></span>
+                                Proceso
+                            </span>
+                        <% else %>
+                            <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                                <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
+                                Terminado
+                            </span>
+                        <% end %>
+                    </p>
+                    <p class="leading-relaxed text-base dark:text-gray-400">Descripción del trabajo: <%= @client.work_description %></p>
+                    <p class="leading-relaxed text-base dark:text-gray-400">Pago inicial: <%= @client.initial_payment %></p>
+                    <p class="leading-relaxed text-base dark:text-gray-400">Total a pagar: <%= @client.total_pay %></p>
+                    <p class="leading-relaxed text-base dark:text-gray-400">Fecha de inicio: <%= @client.start_date %></p>
+                    <p class="leading-relaxed text-base dark:text-gray-400">Fecha a entregar: <%= @client.end_date %></p>
+                </div>
+                
+            </div>
+            <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col mt-5">
+                <div class="flex flex-col sm:flex-row sm:space-x-5 space-y-5 sm:space-y-0"> 
+                    
+                    <%= link_to "Regresar", clients_path, class: "p-5 flex justify-center items-center gap-2 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-[#5dade2] via-[#2e86c1] to-[#21618c] hover:shadow-xl hover:shadow-blue-500 hover:scale-105 duration-300 hover:from-[#21618c] hover:to-[#5dade2]" %>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
