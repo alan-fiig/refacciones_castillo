@@ -7,16 +7,15 @@ class PagesController < ApplicationController
     user = User.find_by(name: params[:name])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to dashboard_path, notice: "Inicio de sesión exitoso"
+      redirect_to dashboard_path, flash: { info: 'Inicio de sesión exitoso.' }
     else
-      flash.now[:alert] = "Usuario o contraseña incorrectos"
-      render :login
+      redirect_to root_path, flash: { error: 'Error al ingresar el usuario o la contraseña.' }
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: "Sesión cerrada"
+    redirect_to root_path, flash: { info: 'Sesión cerrada correctamente.' }
   end
 
   def dashboard

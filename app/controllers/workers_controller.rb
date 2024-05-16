@@ -12,7 +12,7 @@ class WorkersController < ApplicationController
   def create
     @worker = Worker.new(worker_params)
     if @worker.save
-      flash[:notice] = 'Trabajador agregado con éxito'
+      flash[:success] = 'Trabajador agregado con éxito'
       redirect_to workers_path
     else
       flash[:error] = 'Error al agregar trabajador'
@@ -22,7 +22,7 @@ class WorkersController < ApplicationController
 
   def update
     if @worker.update(worker_params)
-      flash[:notice] = 'Trabajador actualizado con éxito'
+      flash[:info] = 'Trabajador actualizado con éxito'
       redirect_to workers_path
     else
       flash[:error] = 'Error al actualizar trabajador'
@@ -32,7 +32,7 @@ class WorkersController < ApplicationController
 
   def destroy
     if @worker.destroy
-      flash[:notice] = 'Trabajador eliminado con éxito'
+      flash[:info] = 'Trabajador eliminado con éxito'
     else
       flash[:error] = 'Error al eliminar trabajador'
     end

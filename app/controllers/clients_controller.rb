@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(worker_params)
     if @client.save
-      flash[:notice] = 'Cliente agregado con éxito'
+      flash[:success] = 'Cliente agregado con éxito'
       redirect_to clients_path
     else
       flash[:error] = 'Error al agregar cliente'
@@ -22,7 +22,7 @@ class ClientsController < ApplicationController
 
   def update
     if @client.update(worker_params)
-      flash[:notice] = 'Cliente actualizado con éxito'
+      flash[:info] = 'Cliente actualizado con éxito'
       redirect_to clients_path
     else
       flash[:error] = 'Error al actualizar cliente'
@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
 
   def destroy
     if @client.destroy
-      flash[:notice] = 'Cliente eliminado con éxito'
+      flash[:info] = 'Cliente eliminado con éxito'
     else
       flash[:error] = 'Error al eliminar cliente'
     end
