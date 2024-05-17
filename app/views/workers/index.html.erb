@@ -35,7 +35,7 @@
                         <% end %>
                         <div class="flex-grow sm:pl-8">
                            <h2 class="title-font font-medium text-lg text-gray-900 dark:text-white"><%= worker.name %></h2>
-                           <h3 class="text-gray-500 mb-3 dark:text-gray-600"><%= worker.position %></h3>
+                           <h3 class="text-gray-500 mb-3 dark:text-gray-500"><%= worker.position %></h3>
                            <p class="mb-4 dark:text-gray-400"><%= worker.address %></p>
                            <p class="mb-4 dark:text-gray-400"><%= worker.telephone %></p>
                            <span class="inline-flex">                              
@@ -69,7 +69,7 @@
                <% end %>
             </div>
          <% else %>
-            <p>No hay trabajadores para mostrar.</p>
+            <p class="dark:text-gray-400">No hay trabajadores para mostrar.</p>
          <% end %>
       </div>
    </section>

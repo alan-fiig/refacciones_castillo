@@ -19,6 +19,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @workers = Worker.count
+    @clients_left = Client.where(status: "Process").count
+    @clients_finished = Client.where(status: "Finished").count
+
   end
 
   def expenses

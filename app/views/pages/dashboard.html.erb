@@ -5,6 +5,73 @@
       <div class="flex flex-col text-center w-full mb-10">
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 dark:text-white">Estadísticas</h1>            
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4 ">
+        <div class="rounded-md border border-gray-100 dark:border-gray-700 p-6 shadow-md bg-gray-100 dark:bg-gray-700 ">
+          <% if @clients_left > 0 %>
+            <div class="flex justify-between mb-6">
+              <div>
+                <div class="flex items-center mb-1">
+                  <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @clients_left %></div>
+                </div>
+                <div class="text-sm font-medium text-gray-400">Trabajos pendientes</div>
+              </div>
+            </div>
+            <%= link_to clients_path, class: "text-blue-300 font-medium text-sm hover:text-blue-500" do %>
+              <p>Ver trabajos</p>
+            <% end %>
+          <% else %>
+            <div class="flex justify-center items-center h-full mb-6">
+              <div class="text-center">
+                <div class="text-2xl font-semibold text-gray-900 dark:text-white">No hay trabajos pendientes</div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="rounded-md border border-gray-100 dark:border-gray-700 p-6 shadow-md bg-gray-100 dark:bg-gray-700 ">
+          <% if @workers > 0 %>
+            <div class="flex justify-between mb-6">
+              <div>
+                <div class="flex items-center mb-1">
+                  <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @workers %></div>
+                </div>
+                <div class="text-sm font-medium text-gray-400">Trabajadores totales</div>
+              </div>
+            </div>
+            <%= link_to workers_path, class: "text-blue-300 font-medium text-sm hover:text-blue-500" do %>
+              <p>Ver trabajadores</p>
+            <% end %>
+          <% else %>
+            <div class="flex justify-center items-center h-full mb-6">
+              <div class="text-center">
+                <div class="text-2xl font-semibold text-gray-900 dark:text-white">No hay trabajadores registrados</div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="rounded-md border border-gray-100 dark:border-gray-700 p-6 shadow-md bg-gray-100 dark:bg-gray-700 ">
+          <% if @clients_finished > 0 %>
+            <div class="flex justify-between mb-6">
+              <div>
+                <div class="flex items-center mb-1">
+                  <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @clients_finished %></div>
+                </div>
+                <div class="text-sm font-medium text-gray-400">Trabajos terminados</div>
+              </div>
+            </div>
+            <%= link_to clients_path, class: "text-blue-300 font-medium text-sm hover:text-blue-500" do %>
+              <p>Ver trabajos</p>
+            <% end %>
+          <% else %>
+            <div class="flex justify-center items-center h-full mb-6">
+              <div class="text-center">
+                <div class="text-2xl font-semibold text-gray-900 dark:text-white">No hay trabajos terminados</div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </section>
 </div>
