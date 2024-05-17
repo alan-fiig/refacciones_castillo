@@ -8,7 +8,7 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <%= f.label :Nombre, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el nombre del cliente", required: true %>
+                        <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el nombre del cliente", pattern: "[a-zA-Zá-úÁ-Ú\s]*", required: true %>
                     </div>
                     <div>
                         <%= f.label :"Descripción del trabajo", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
@@ -16,15 +16,15 @@
                     </div>                 
                     <div>
                         <%= f.label :"Pago inicial", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.number_field :initial_payment, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el pago inicial dado por el cliente", required: true %>
+                        <%= f.number_field :initial_payment, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el pago inicial dado por el cliente", oninput: "this.value = this.value.replace(/[^0-9]/g, '')", required: true %>
                     </div>
                     <div>
                         <%= f.label :"Total a pagar", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.number_field :total_pay, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el total a pagar por el trabajo", required: true %>
+                        <%= f.number_field :total_pay, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el total a pagar por el trabajo", oninput: "this.value = this.value.replace(/[^0-9]/g, '')", required: true %>
                     </div>
                     <div>
                         <%= f.label :Teléfono, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.number_field :telephone, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "123-456-7890", required: true %>
+                        <%= f.number_field :telephone, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "123-456-7890", oninput: "this.value = this.value.slice(0, 10).replace(/[^0-9]/g, '')", title: "El teléfono debe tener 10 dígitos", required: true %>
                     </div>
                     <div>
                         <%= f.label :Dirección, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>

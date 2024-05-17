@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails";
 import "controllers";
 import "./dark_mode";
-import "./display image";
+import "./display_image";
 import "flowbite";
 import "chartkick";
 import "Chart.bundle";

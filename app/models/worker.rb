@@ -3,7 +3,7 @@ class Worker < ApplicationRecord
   validates :name, presence: true
   validates :position, presence: true
   validates :age, presence: true, numericality: {:greater_than => 0}
-  validates :telephone, presence: true, numericality: {:greater_than => 0}
+  validates :telephone, presence: true, format: { with: /\A\d{10}\z/, message: "Debe tener exactamente 10 dígitos" }
   validates :salary, presence: true, numericality: {:greater_than => 0}
   validates :address, presence: true
 end

@@ -26,23 +26,23 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <%= f.label :Nombre, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el nombre completo", required: true %>
+                        <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el nombre completo", pattern: "[a-zA-Zá-úÁ-Ú\s]*", required: true %>
                     </div>
                     <div>
                         <%= f.label :Puesto, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.text_field :position, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa su ocupación en el taller", required: true %>
+                        <%= f.text_field :position, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa su ocupación en el taller", pattern: "[a-zA-Zá-úÁ-Ú\s]*", required: true %>
                     </div>                 
                     <div>
                         <%= f.label :Salario, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.number_field :salary, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el salario semanal", required: true %>
+                        <%= f.number_field :salary, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa el salario semanal", oninput: "this.value = this.value.replace(/[^0-9]/g, '')", required: true %>
                     </div>
                     <div>
                         <%= f.label :Edad, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.number_field :age, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa la edad", required: true %>
+                        <%= f.number_field :age, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Ingresa la edad", oninput: "this.value = this.value.slice(0, 2).replace(/[^0-9]/g, '')", required: true %>
                     </div>
                     <div>
                         <%= f.label :Teléfono, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                        <%= f.number_field :telephone, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "123-456-7890", required: true %>
+                        <%= f.number_field :telephone, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "123-456-7890", oninput: "this.value = this.value.slice(0, 10).replace(/[^0-9]/g, '')", title: "El teléfono debe tener 10 dígitos", required: true %>
                     </div>
                     <div>
                         <%= f.label :Dirección, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
