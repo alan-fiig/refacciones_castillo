@@ -21,6 +21,8 @@ class PagesController < ApplicationController
   def dashboard
   end
 
-  def pay
+  def expenses
+    @profits = Client.sum(:total_pay)
+    @payments = Worker.sum(:salary)
   end
 end

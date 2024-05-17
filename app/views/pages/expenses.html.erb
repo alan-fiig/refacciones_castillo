@@ -1,0 +1,106 @@
+<%= render 'partials/menu' %>
+<div class="p-4 sm:ml-64 dark:bg-gray-800 min-h-screen">
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-10">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 dark:text-white">Gastos y Ganancias</h1>            
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4 ">
+                <div class="rounded-md border border-gray-100 dark:border-gray-700 p-6 shadow-md bg-gray-100 dark:bg-gray-700 ">
+                    <div class="flex justify-between mb-6">
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= number_to_currency(@profits) %></div>
+                            </div>
+                            <div class="text-sm font-medium text-gray-400">Ganancias de los trabajos realizados</div>
+                        </div> 
+                    </div>
+                    <%= link_to clients_path, class:"text-blue-300 font-medium text-sm hover:text-blue-500" do %>
+                        <p>Ver clientes</p>
+                    <% end %>
+                </div>
+                <div class="rounded-md border border-gray-100 dark:border-gray-700 p-6 shadow-md bg-gray-100 dark:bg-gray-700 ">
+                    <div class="flex justify-between mb-6">
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= number_to_currency(@payments) %></div>
+                            </div>
+                            <div class="text-sm font-medium text-gray-400">Total a pagar a los trabajadores</div>
+                        </div> 
+                    </div>
+                    <%= link_to workers_path, class:"text-blue-300 font-medium text-sm hover:text-blue-500" do %>
+                        <p>Ver trabajadores</p>
+                    <% end %>
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center h-full mb-4 p-10 rounded bg-gray-100 dark:bg-gray-700">
+                <h1 class="text-center text-xl mt-0 mb-4 text-gray-900 dark:text-white">Trabajadores</h1>
+                <%= column_chart Worker.group(:name).sum(:salary),
+                    colors: ["#5dade2"],
+                    loading: "Cargando...",
+                    empty: "No hay trabajadores registrados",
+                    download: true,
+                    library: {
+                        scales: {
+                            x: {
+                                ticks: {
+                                    color: '#91c3fb',
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Salario',
+                                    color: '#91c3fb' 
+                                },
+                                ticks: {
+                                    color: '#91c3fb',
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                %>
+            </div>
+            <div class="flex flex-col items-center justify-center h-full mb-4 p-10 rounded bg-gray-100 dark:bg-gray-700">
+                <h1 class="text-center text-xl mt-0 mb-4 text-gray-900 dark:text-white">Clientes</h1>
+                <%= column_chart Client.group(:name).sum(:total_pay),
+                    colors: ["#5dade2"],
+                    loading: "Cargando...",
+                    empty: "No hay trabajadores registrados",
+                    download: true,
+                    library: {
+                        scales: {
+                            x: {
+                                ticks: {
+                                    color: '#91c3fb',
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Total a pagar',
+                                    color: '#91c3fb' 
+                                },
+                                ticks: {
+                                    color: '#91c3fb',
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                %>
+            </div>
+        </div>
+    </section>
+</div>

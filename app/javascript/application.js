@@ -4,3 +4,5 @@ import "controllers";
 import "./dark_mode";
 import "./display image";
 import "flowbite";
+import "chartkick";
+import "Chart.bundle";
